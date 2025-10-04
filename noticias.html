@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laranja Notícias</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat',sans-serif; }
+  body { background:#f4f4f4; color:#333; line-height:1.6; }
+  header { position:fixed; top:0; width:100%; background:#ff7f50; color:#fff; z-index:1000; padding:20px 0; text-align:center; }
+  header h1 { font-size:2rem; }
+  nav { margin-top:10px; }
+  nav a { color:#fff; text-decoration:none; margin:0 15px; font-weight:600; transition:color 0.3s; }
+  nav a:hover { color:#ffd700; }
+  section { padding:120px 20px 60px; max-width:900px; margin:0 auto; }
+  .artigo { background:#fff; padding:15px; margin-bottom:10px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); cursor:pointer; }
+  .artigo h3 { color:#ff7f50; margin-bottom:10px; font-size:1.2rem; }
+  .resumo { color:#555; font-size:1rem; }
+  #recentes { margin-top:20px; }
+  .voltar { display:inline-block; margin-top:15px; color:#ff7f50; cursor:pointer; }
+  .voltar:hover { text-decoration:underline; }
+  footer { text-align:center; padding:20px 0; background:#333; color:#fff; }
+  footer a { color:#ff7f50; margin:0 10px; text-decoration:none; }
+  footer a:hover { color:#ffd700; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Laranja Notícias</h1>
+</header>
+
+<section id="conteudo-principal">
+  <div id="destaques">
+    <div class="artigo" onclick="abrirNoticia(0)">
+      <h3>Portugal aprova nova lei de energias renováveis</h3>
+      <p class="resumo">O Parlamento português aprovou uma lei que incentiva a produção de energia solar e eólica.</p>
+    </div>
+    <div class="artigo" onclick="abrirNoticia(1)">
+      <h3>NOW ultrapassa CNN Portugal no horário nobre</h3>
+      <p class="resumo">O canal News NOW superou a audiência da CNN Portugal no horário nobre.</p>
+    </div>
+    <div class="artigo" onclick="abrirNoticia(2)">
+      <h3>Joana Marques absolvida em processo judicial</h3>
+      <p class="resumo">A humorista Joana Marques foi absolvida de um processo judicial interposto pelos irmãos Rosado.</p>
+    </div>
+  </div>
+
+  <div id="recentes">
+    <h2>Notícias Recentes</h2>
+    <div class="artigo" onclick="abrirNoticia(3)">
+      <h3>Portugal lidera aumento do preço das casas na UE</h3>
+      <p class="resumo">Portugal registou a maior subida no preço das casas na União Europeia.</p>
+    </div>
+    <div class="artigo" onclick="abrirNoticia(4)">
+      <h3>Ex-CEO da Google critica teletrabalho</h3>
+      <p class="resumo">Eric Schmidt defendeu maior dedicação presencial nas empresas.</p>
+    </div>
+    <div class="artigo" onclick="abrirNoticia(5)">
+      <h3>Seleção Nacional de Futebol de Praia prepara-se para Japão</h3>
+      <p class="resumo">A seleção continua a sua preparação para o duplo confronto frente ao Japão.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Laranja Notícias. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+const noticias = [
+  {
+    titulo: "Portugal aprova nova lei de energias renováveis",
+    conteudo: `<p>O Parlamento português aprovou uma lei que incentiva a produção de energia solar e eólica, oferecendo benefícios fiscais tanto para empresas como para cidadãos que adotem práticas sustentáveis.</p>
+               <p>O objetivo é reduzir a dependência de combustíveis fósseis e impulsionar o país rumo a metas ambientais mais ambiciosas, alinhadas com os objetivos da União Europeia para 2030.</p>
+               <p>O governo espera que esta medida gere milhares de empregos verdes e estimule o investimento privado em tecnologia limpa.</p>`
+  },
+  {
+    titulo: "NOW ultrapassa CNN Portugal no horário nobre",
+    conteudo: `<p>O canal News NOW superou a audiência da CNN Portugal durante o horário nobre, evidenciando a crescente popularidade junto dos telespectadores portugueses.</p>
+               <p>A programação diversificada, incluindo debates, reportagens e conteúdos de investigação, tem sido apontada como o principal fator do sucesso.</p>
+               <p>Especialistas consideram que esta tendência poderá alterar o panorama da televisão de notícias em Portugal.</p>`
+  },
+  {
+    titulo: "Joana Marques absolvida em processo judicial",
+    conteudo: `<p>A humorista Joana Marques foi absolvida no processo judicial interposto pelos irmãos Nelson e Sérgio Rosado, conhecidos como os Anjos.</p>
+               <p>O tribunal considerou que não houve difamação ou intenção de prejudicar os autores da ação.</p>
+               <p>Joana Marques agradeceu aos seus seguidores pelo apoio e afirmou que continuará a fazer humor de forma livre e responsável.</p>`
+  },
+  {
+    titulo: "Portugal lidera aumento do preço das casas na UE",
+    conteudo: `<p>Portugal registou a maior subida no preço das casas na União Europeia, com um aumento de 17,2% no segundo trimestre de 2025.</p>
+               <p>O crescimento tem sido impulsionado pelo elevado investimento estrangeiro e pela procura interna por habitação, sobretudo em Lisboa e Porto.</p>
+               <p>Analistas alertam para o risco de bolha imobiliária e para a necessidade de políticas que controlem o aumento dos preços.</p>`
+  },
+  {
+    titulo: "Ex-CEO da Google critica teletrabalho",
+    conteudo: `<p>Eric Schmidt, ex-CEO da Google, criticou o teletrabalho e defendeu que as empresas adotem maior dedicação presencial.</p>
+               <p>Segundo ele, o trabalho remoto excessivo pode prejudicar a produtividade e a inovação.</p>
+               <p>Especialistas debatem o equilíbrio entre teletrabalho e presença física nas empresas.</p>`
+  },
+  {
+    titulo: "Seleção Nacional de Futebol de Praia prepara-se para Japão",
+    conteudo: `<p>A Seleção Nacional de Futebol de Praia continua a sua preparação para o duplo confronto frente ao Japão.</p>
+               <p>Os treinos focam resistência física, estratégia ofensiva e coordenação da equipe.</p>
+               <p>O treinador afirmou que a seleção está confiante e motivada para alcançar bons resultados.</p>`
+  }
+];
+
+function abrirNoticia(index) {
+  const conteudoPrincipal = document.getElementById('conteudo-principal');
+  conteudoPrincipal.innerHTML = `<div class="artigo">
+                                    <h3>${noticias[index].titulo}</h3>
+                                    ${noticias[index].conteudo}
+                                    <span class="voltar" onclick="voltar()">← Voltar</span>
+                                  </div>`;
+}
+
+function voltar() {
+  location.reload(); // volta para a lista de notícias
+}
+</script>
+
+</body>
+</html>
